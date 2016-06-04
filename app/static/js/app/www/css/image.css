@@ -1,0 +1,320 @@
+@charset "UTF-8";
+
+.slide-bg-wrap .g-layout-wrap {
+    position: relative;
+    height: 380px;
+    overflow: hidden
+}
+
+.g-slide {
+    float: right;
+    width: 728px;
+    height: 380px;
+}
+
+.image-catalog-nav {
+    width: 272px;
+    height: 380px;
+    background-color: #fff;
+    overflow: hidden;
+    float: left;
+}
+
+.image-catalog-nav dl {
+    clear: both;
+    padding: 10px 25px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden
+}
+
+.image-catalog-nav dl.last {
+    border: none
+}
+
+.image-catalog-nav dt {
+    font-size: 22px;
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+    float: left;
+    margin-right: 20px;
+    height: 75px;
+    line-height: 75px;
+}
+
+.image-catalog-nav dd {
+    float: left;
+    width: 45px;
+    line-height: 25px;
+}
+
+/** 创意图册 **/
+.album-list {
+    overflow: hidden;
+}
+
+.album-list li {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.album-list .row-last {
+    margin-right: 0
+}
+
+.album-list .g-img {
+    width: 320px;
+    height: 210px;
+}
+
+.effect-list {
+    overflow: hidden;
+}
+
+.effect-list dt {
+    float: left;
+    width: 140px;
+    height: 200px;
+    background-color: #57c7be;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.effect-list dt span {
+    display: block;
+    width: 90px;
+    height: 100px;
+    margin: 50px auto 0 auto;
+    text-indent: -9999em;
+    background: url("../img/icon-png24.png") no-repeat -12px -123px;
+}
+
+.effect-list dt s {
+    display: block;
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-right-color: #fff;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    position: absolute
+}
+
+.effect-list dd {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.effect-list .g-img {
+    width: 269px;
+    height: 200px;
+}
+
+.effect-list .g-img-bdr:hover {
+    border-color: #57c7be
+}
+
+.effect-list .room-tab .g-img-bdr:hover {
+    border-color: #ff5500
+}
+
+.effect-list .effect-bed-room {
+    background-color: #ff5500
+}
+
+.effect-list .effect-bed-room span {
+    background-position: -134px -124px;
+}
+
+.style-effect-list {
+    overflow: hidden;
+}
+
+.style-effect-list li {
+    float: left;
+    margin: 0 0 20px 20px;
+}
+
+.style-effect-list .first {
+    margin: 0;
+}
+
+.style-effect-list .first .g-img {
+    width: 280px;
+    height: 350px
+}
+
+.style-effect-list .g-img {
+    width: 220px;
+    height: 165px;
+}
+
+/** 局部细节 **/
+.detail-cover-list {
+    height: 364px;
+    position: relative;
+    background: url("../img/image-icon-bg.jpg") no-repeat 0 0
+}
+
+.detail-cover-list li {
+    width: 148px;
+    height: 182px;
+    overflow: hidden;
+    position: absolute;
+    left: 500px;
+    top: 300px;
+}
+
+.detail-cover-list a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-cover-list span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.detail-cover-list a:hover span {
+    opacity: 0;
+    display: none \9;
+    transition: 1s opacity ease
+}
+
+.detail-cover-list i {
+    display: block;
+    width: 120px;
+    height: 130px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -65px 0 0 -60px;
+    background: url("../img/image-icon24.png") no-repeat 0 0;
+    _background: url("../img/image-icon8.png") no-repeat 0 0;
+    text-indent: -9999em
+}
+
+.detail-cover-list .cover-ceiling {
+    top: 0;
+    left: 0
+}
+
+.detail-cover-list .cover-curtain {
+    top: 0;
+    left: 148px;
+}
+
+.detail-cover-list .cover-partition-wall {
+    top: 0;
+    left: 296px;
+    width: 278px
+}
+
+.detail-cover-list .cover-invisible-door {
+    top: 182px;
+    left: 0;
+}
+
+.detail-cover-list .cover-tatami {
+    top: 182px;
+    left: 148px;
+    width: 278px
+}
+
+.detail-cover-list .cover-bar {
+    top: 182px;
+    left: 426px;
+}
+
+.detail-cover-list .cover-wall {
+    top: 0;
+    left: 574px;
+    width: 279px;
+    height: 364px;
+}
+
+.detail-cover-list .cover-shoes-chest {
+    top: 0;
+    left: 852px;
+}
+
+.detail-cover-list .cover-stair {
+    top: 182px;
+    left: 852px;
+}
+
+.cover-ceiling span {
+    background-color: #72d1cb;
+}
+
+.cover-curtain span {
+    background-color: #6d6d6d;
+}
+
+.cover-partition-wall span {
+    background-color: #ebc04d;
+}
+
+.cover-invisible-door span {
+    background-color: #c083e0;
+}
+
+.cover-tatami span {
+    background-color: #86da61;
+}
+
+.cover-bar span {
+    background-color: #e1975a;
+}
+
+.cover-wall span {
+    background-color: #72d1cb;
+}
+
+.cover-shoes-chest span {
+    background-color: #e76d78;
+}
+
+.cover-stair span {
+    background-color: #5a5a5a;
+}
+
+.cover-ceiling i {
+    background-position: 12px -17px;
+}
+
+.cover-curtain i {
+    background-position: -137px -17px;
+}
+
+.cover-partition-wall i {
+    background-position: -283px -17px;
+}
+
+.cover-invisible-door i {
+    background-position: -732px -17px;
+}
+
+.cover-tatami i {
+    background-position: -881px -17px;
+}
+
+.cover-bar i {
+    background-position: -1027px -17px;
+}
+
+.cover-wall i {
+    background-position: -435px -17px;
+}
+
+.cover-shoes-chest i {
+    background-position: -583px -17px;
+}
+
+.cover-stair i {
+    background-position: -1168px -17px;
+}

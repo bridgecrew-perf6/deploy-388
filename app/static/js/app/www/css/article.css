@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+.g-slide {
+    width: 1000px;
+    height: 360px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.strategy-article-top-2 {
+    overflow: hidden;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.strategy-article-top-2 .g-img {
+    width: 320px;
+    height: 240px;
+    margin-bottom: 10px;
+}
+
+.strategy-article-top-2 li.first {
+    margin-right: 20px;
+}
+
+.strategy-article-top-2 li {
+    float: left;
+    width: 320px;
+}
+
+.strategy-article-list li {
+    float: left;
+    width: 50%;
+}
+
+.strategy-article-list a {
+    display: block;
+}
+
+.strategy-article-list .time {
+    float: right;
+    padding-right: 15px;
+}
+
+#mod-other-views-article h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    color: #555
+}
+
+#mod-other-views-article li {
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+#mod-other-views-article li .ti {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#mod-other-views-article .g-img {
+    float: left;
+    margin-right: 10px;
+}
+
+#mod-other-views-article .desc {
+    line-height: 200%
+}
+
+#mod-other-views-article h2 {
+    background: none;
+    padding-left: 0;
+}
+
+#mod-special .g-layout-main .g-img {
+    width: 660px;
+    height: 370px;
+}
+
+.special-sub-list li {
+    margin-bottom: 15px;
+}
+
+.special-sub-list .g-img {
+    width: 322px;
+    height: 176px;
+}
+
+#mod-news-list .article-list li {
+    float: left;
+    width: 475px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#mod-news-list .article-list li.even {
+    margin-right: 50px;
+}
+
+#mod-news-list .article-list .ti {
+    display: block;
+    width: 350px;
+    overflow: hidden;
+    height: 30px;
+    float: left;
+}
+
+#mod-news-list .article-list .date {
+    float: right;
+}
+
+#mod-bake-list dl {
+    width: 1000px;
+    margin-right: 20px;
+    float: left
+}
+
+#mod-bake-list dt {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#mod-bake-list dl.last {
+    margin-right: 0;
+}
+
+#mod-bake-list dd {
+    width: 78px;
+    float: left;
+    margin-bottom: 5px;
+}

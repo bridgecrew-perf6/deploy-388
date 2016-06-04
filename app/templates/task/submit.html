@@ -1,0 +1,66 @@
+{% extends 'layout1.html' %}
+
+
+{% block main_content %}
+    <div class="operate-bar">
+    </div>
+    <form action="{{ url_for('ctrl.task_do_submit') }}" class="frm" rel="async" method="post"
+          enctype="multipart/form-data">
+        <table class="frm-tbl">
+            <caption>创建发布单~</caption>
+            <tbody>
+            <tr>
+                <td class="col-label">项目编号</td>
+                <td class="col-content">
+                    {{ project.project_no }}
+                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">项目名称</td>
+                <td class="col-content">
+                    {{ project.project_name }}
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">发布环境</td>
+                <td class="col-content">
+                    {{ env.env_name }}
+                    <input type="hidden" name="env_id" value="{{ env.id }}"/>
+                </td>
+            </tr>
+            <td class="col-label">发布单标题</td>
+            <td class="col-content">
+                <input type="text" class="txt middle-txt" name="task_title"/>
+            </td>
+            <tr>
+                <td class="col-label">分支</td>
+                <td>
+                    <select name="branch">
+                        {% for key,value in branch_list.items() %}
+                            <option value="{{ key }}">{{ key }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">commit</td>
+                <td>
+                    <select name="commit">
+                        {% for commit in commit_list %}
+                            <option value="{{ commit.sha }}">{{ commit.sha }}-{{ commit.author.raw }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="col-action">
+                    <input type="submit" value="创建" class="btn btn-primary">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

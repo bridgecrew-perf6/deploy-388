@@ -1,0 +1,21 @@
+{% extends 'layout1.html' %}
+
+
+{% block main_content %}
+    <div class="operate-bar"></div>
+    {% for project in project_list %}
+        <div class="group-container">
+            <div class="group-title">{{ project.project_name }}</div>
+            <div class="sep-line-row"></div>
+            <div class="group-body">
+                {% for env in env_list %}
+                    <a href="{{ url_for('ctrl.task_submit',project_id=project.id,env_id=env.id) }}"
+                       class="btn group-item-space" rel="popup" data-width="700">
+                        {{ env.env_name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

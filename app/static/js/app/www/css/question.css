@@ -1,0 +1,343 @@
+.g-layout-main2 {
+}
+
+.g-layout-side2 {
+}
+
+.ask-frm {
+    overflow: hidden
+}
+
+.ask-frm legend {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.ask-frm legend s {
+    display: inline-block;
+    float: right;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    margin-left: 10px;
+    _float: none;
+    _overflow: hidden;
+}
+
+.ask-frm fieldset {
+    margin-bottom: 10px;
+}
+
+.ask-frm-input {
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.ask-frm-input textarea {
+    border: none;
+    resize: none;
+    display: block;
+    width: 625px;
+    height: 40px;
+    margin: 15px 15px 30px 15px;
+    padding: 0;
+    outline: none;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.ask-frm .upload-btn {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+}
+
+.ask-frm .word-count {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}
+
+.ask-frm .word-count b {
+    color: #19b97d;
+    font-weight: normal
+}
+
+.ask-frm .word-count-overflow {
+    color: #ff5500
+}
+
+.ask-frm .word-count-overflow b {
+    color: #ff5500
+}
+
+.main-field legend {
+    font-size: 14px;
+}
+
+.addition-field legend {
+    cursor: pointer;
+}
+
+.addition-field legend.hover {
+    color: #ff5500
+}
+
+.addition-hide .ask-frm-input {
+    display: none
+}
+
+.addition-hide .op {
+    display: none
+}
+
+.addition-hide legend s {
+    border-top-color: gray;
+    margin-top: 8px;
+}
+
+.addition-hide legend.hover s {
+    border-top-color: #ff5500;
+}
+
+.addition-expand legend s {
+    border-bottom-color: gray;
+    margin-top: 3px;
+}
+
+.addition-expand legend.hover s {
+    border-bottom-color: #ff5500
+}
+
+.addition-expand legend s {
+    border-bottom-color: gray
+}
+
+.addition-expand legend.hover s {
+    border-bottom-color: #ff5500
+}
+
+.ask-frm .sel-cat-field {
+    width: 480px;
+    float: left;
+    overflow: hidden;
+    _zoom: 1;
+    _float: none;
+    _display: inline;
+}
+
+.ask-frm .sel-cat-field legend {
+    float: left;
+    height: 20px;
+}
+
+.ask-frm .sel-cat-field .validate-fail {
+    clear: both;
+    margin-left: 80px
+}
+
+.ask-frm .qs-categories {
+    float: left;
+    width: 380px;
+    margin-left: 10px;
+    display: inline;
+}
+
+.ask-frm .qs-categories li {
+    float: left;
+    margin: 0 10px 5px 0;
+    background-color: #eee;
+    padding: 0 4px;
+    display: block;
+    cursor: pointer;
+    display: inline;
+    _float: none
+}
+
+.ask-frm .qs-categories li.active {
+    background-color: #58c7be;
+    color: white;
+}
+
+.ask-frm .ask-btn {
+    float: right;
+    font-size: 18px;
+    font-weight: normal;
+    height: 40px;
+    line-height: 40px;
+    width: 170px;
+    _float: none;
+    _display: inline;
+}
+
+.page-mod {
+    border: 1px solid #eee;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.page-mod-ti {
+    color: #333;
+    font-size: 12px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.page-mod-ti .g-more {
+    float: right;
+    margin-top: -24px;
+    color: gray;
+}
+
+.page-mod-con {
+    padding: 15px 0 0 0
+}
+
+.person-info {
+    overflow: hidden;
+    margin: 0 auto 10px 40px;
+}
+
+.person-info .g-avatar {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 10px
+}
+
+.person-info .name {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    width: 120px;
+    overflow: hidden;
+    height: 25px;
+}
+
+.person-info .qs-state {
+    line-height: 150%;
+}
+
+.login-slogan {
+    line-height: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #333
+}
+
+.question-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.question-list li.last,
+.question-list li:last-child {
+    border: none;
+}
+
+.question-list a {
+    display: block;
+    font-size: 14px;
+}
+
+.question-list .cnt,
+.question-list .time {
+    float: right;
+    margin-top: -20px;
+    color: #999;
+    display: inline-block;
+}
+
+.question-list .cnt {
+}
+
+.question-list .time {
+    width: 60px;
+    text-align: right
+}
+
+.page-mod-ask h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333
+}
+
+.ask-caption {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.question-categories {
+    overflow: hidden;
+    width: 238px
+}
+
+.question-categories li {
+    float: left;
+}
+
+.question-categories a {
+    display: block;
+    padding: 2px 10px;
+    text-align: center;
+    background-color: #eee;
+    margin: 0 10px 10px 0
+}
+
+.question-categories a:hover {
+    border-color: #ff5500
+}
+
+#other-focus-list .g-list {
+    overflow: hidden
+}
+
+#other-focus-list .g-list li {
+    float: left;
+    width: 49%
+}
+
+.answer-guide {
+    padding: 10px 0 10px 0;
+    text-align: center
+}
+
+.answer-guide .last-answer-list-wrap {
+    margin: 20px 0 0 0;
+    padding: 5px 10px;
+    background-color: #eee;
+    text-align: left;
+    line-height: 20px;
+    overflow: hidden;
+    height: 100px;
+}
+
+.answer-guide .last-answer-list li {
+    height: 20px;
+    overflow: hidden
+}
+
+.answer-guide .last-answer-list span {
+    color: gray;
+}
+
+#question-rec-ad {
+}
+
+#question-rec-ad .g-img {
+    display: block;
+    width: 240px;
+    height: 180px;
+    overflow: hidden
+}
+
+#question-rec-ad p {
+    font-size: 14px;
+    text-align: center;
+    padding: 18px 0 0 0;
+}

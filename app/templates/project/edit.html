@@ -1,0 +1,94 @@
+{% extends 'layout1.html' %}
+
+{% block main_content %}
+    <div class="operate-bar">
+    </div>
+    <form action="#" class="frm" rel="async" method="post" enctype="multipart/form-data">
+        <table class="frm-tbl">
+            <caption>创建项目~</caption>
+            <tbody>
+            <tr>
+                <td class="col-label">项目编号</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="project_no"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">项目名称</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="project_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">项目描述</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="project_description"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">发布方式</td>
+                <td><input type="radio" name="repo_type" value="git" checked="checked"/>GIT
+                    <input type="radio" name="repo_type" value="svn"/>SVN
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">项目地址</td>
+                <td><input type="text" class="long-txt" name="repo_url"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">是否启用</td>
+                <td><input type="radio" name="status" value="on" checked="checked"/>启用
+                    <input type="radio" name="status" value="off"/>停用
+                </td>
+            </tr>
+            <tr class="grp">
+                <td class="col-label">宿主机检出目录</td>
+                <td>
+                    <input type="text" class="long-txt" name="deploy_from"/>
+                </td>
+            </tr>
+            <tr class="grp">
+                <td class="col-label">宿主机检出排除文件</td>
+                <td>
+                    <textarea class="middle-txt" name="exclude"></textarea>
+                </td>
+            </tr>
+
+            <tr class="grp">
+                <td class="col-label">目标机用户</td>
+                <td>
+                    <input type="text" class="middle-txt" name="release_user"/>
+                </td>
+            </tr>
+
+            <tr class="grp">
+                <td class="col-label">目标机部署目录</td>
+                <td>
+                    <input type="text" class="middle-txt" name="deploy_to"/>
+                </td>
+            </tr>
+
+            <tr class="grp">
+                <td class="col-label">目标机发布目录</td>
+                <td>
+                    <input type="text" class="middle-txt" name="release_to"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">是否需要审核</td>
+                <td><input type="radio" name="review" value="on" checked="checked"/>需要
+                    <input type="radio" name="review" value="off"/>无需
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="col-action">
+                    <input type="submit" value="创建" class="btn btn-primary">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

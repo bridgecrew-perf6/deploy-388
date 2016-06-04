@@ -1,0 +1,46 @@
+{% extends 'layout1.html' %}
+
+{% block main_content %}
+    <div class="operate-bar">
+    </div>
+    <table class="data-tbl" data-empty-fill="1">
+        <thead>
+        <tr>
+            <th>任务ID</th>
+            <th>项目</th>
+            <th>环境</th>
+            <th>上线标题</th>
+            <th>分支</th>
+            <th>版本号</th>
+            <th>类型</th>
+            <th>当前状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in task_list %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.project_id }}</td>
+                <td>{{ task.env_id }}</td>
+                <td>{{ task.task_title }}</td>
+                <td>{{ task.branch_id }}</td>
+                <td>{{ task.commit_id }}</td>
+                <td>{{ task_action_id_desc_map[task.action_id] }}</td>
+                <td>{{ task_status_desc_map[task.status] }}</td>
+                <td>
+                    <a rel=async data-confirm="确认审核通过?"
+                       href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_success) }}">审核通过</a>|
+                    <a rel=async data-confirm="确认审核驳回?"
+                       href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_reject) }}">审核不通过</a>|
+                    <a rel=async data-confirm="确认进行发布?" href="{{ url_for('ctrl.task_deploy',task_id=task.id) }}">发布</a>|
+                    <a rel=async data-confirm="确认进行回滚?"
+                       href="{{ url_for('ctrl.task_rollback',task_id=task.id) }}">回滚</a>|
+                </td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+{% endblock %}

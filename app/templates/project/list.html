@@ -1,0 +1,40 @@
+{% extends 'layout1.html' %}
+
+{% block main_content %}
+    <div class="operate-bar">
+        <a href="{{ url_for('ctrl.project_edit',project_id=' ') }}" class="btn" rel="popup" data-width="700">创建项目</a>
+    </div>
+    <table class="data-tbl" data-empty-fill="1">
+        <thead>
+        <tr>
+            <th>项目ID</th>
+            <th>项目编号</th>
+            <th>项目名称</th>
+            <th>上线方式</th>
+            <th>项目状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if(project_list) %}
+            {% for project in project_list %}
+                <tr>
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.project_no|string }}</td>
+                    <td>{{ project.project_name }}</td>
+                    <td>{{ project.repo_type }}</td>
+                    <td>{% if(project.status) %}有效{% else %}无效{% endif %}</td>
+                    <td>
+                        <a href="#" target="_blank">检测</a>|
+                        <a href="#" target="_blank">查看</a>|
+                        <a href="#" target="_blank">编辑</a>|
+                        <a href="{{ url_for('.project_toggle',project_id=project.project_id) }}"
+                           target="_blank">停用/启用</a>|
+                        <a href="#" target="_blank">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

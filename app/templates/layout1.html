@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/default.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/theme.css') }}">
+    {% block css %}
+    {% endblock %}
+    <script type="text/javascript" src="{{ url_for('static',filename='js/seajs/sea.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/seajs/config.js') }}"></script>
+    <script type="text/javascript">
+        seajs.use("ywj/auto");
+    </script>
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+<div id="page">
+    {% block header %}
+        <div id="header">
+            {% block header_content %}
+                <h1 id="logo">
+                    <a href="{{ url_for('ctrl.index') }}">Deploy</a>
+                </h1>
+
+                <div id="welcome">
+                    {% if current_user.is_authenticated %}
+                        欢迎您， <b>{{ current_user.user_email }}</b> &nbsp;
+                    {% else %}
+                        请&nbsp;&nbsp;<a href="{{ url_for('ctrl.user_login') }}">登录</a>
+                    {% endif %}
+                </div>
+                <ul id="main-nav">
+                    {% for i in range(5) %}
+                        <li>
+                            <a>父菜单一</a>
+                        </li>
+                        <dl class="sub-nav">
+                            <dt><span>子菜单一</span></dt>
+                            <dd><a>一</a></dd>
+                            <dd><a>一</a></dd>
+                            <dd><a>一</a></dd>
+                            <dd><a>一</a></dd>
+                            <dd><a>一</a></dd>
+                        </dl>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+        </div>
+    {% endblock %}
+    {% block container %}
+        <div id="container">
+            {% block container_aside %}
+                <div id="col-aside">
+                    {% block aside_nav %}
+                        <dl class="aside-nav">
+                            <dt>上线单</dt>
+                            <dd><a href="{{ url_for('ctrl.task_list') }}">我的上线单</a></dd>
+                            <dd><a href="{{ url_for('ctrl.task_choose') }}">提交上线单</a></dd>
+                        </dl>
+                        <dl class="aside-nav">
+                            <dt>项目</dt>
+                            <dd><a href="{{ url_for('ctrl.project_list') }}">项目列表</a></dd>
+                            <dd><a href="{{ url_for('ctrl.project_edit',project_id="") }}">新增项目</a></dd>
+                        </dl>
+                        <dl class="aside-nav">
+                            <dt>环境</dt>
+                            <dd><a href="{{ url_for('ctrl.env_list') }}">环境列表</a></dd>
+                            <dd><a href="{{ url_for('ctrl.env_edit',env_id='') }}">新增环境</a></dd>
+                        </dl>
+                        <dl class="aside-nav">
+                            <dt>服务器</dt>
+                            <dd><a href="{{ url_for('ctrl.server_list') }}">机器列表</a></dd>
+                            <dd><a href="{{ url_for('ctrl.server_edit',server_id=' ') }}">新增机器</a></dd>
+                        </dl>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+            {% block main %}
+                <div id="col-main">
+                    {% block main_content %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    {% endblock %}
+    <div id="footer">
+        Copyright &copy; 2016
+        <a href="#">Deploy</a>
+    </div>
+</div>
+</body>
+
+<style type="text/css">
+    {% block footer_css %}
+    {% endblock %}
+
+</style>
+
+<script type="text/javascript">
+    {% block footer_js %}
+        var curr_url = "{{ request.path }}";
+
+        seajs.use("jquery", function ($) {
+            curr_url = $.trim(curr_url);
+            var url_len = curr_url.length;
+            if (curr_url.substring(url_len - 1, url_len) == "/") {
+                curr_url = curr_url.substring(0, url_len - 1);
+                curr_url = $.trim(curr_url);
+            }
+            curr_url += "/"
+
+            $(document).ready(function () {
+                var curr_link = $("dd a[href='" + curr_url + "']");
+                if (curr_link.size() > 0) {
+                    var dd = curr_link.parent("dd");
+                    $("dd").removeClass("active");
+                    dd.addClass("active");
+                }
+            });
+        });
+    {% endblock %}
+
+</script>
+
+
+</html>

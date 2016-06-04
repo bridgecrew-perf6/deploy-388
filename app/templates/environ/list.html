@@ -1,0 +1,30 @@
+{% extends 'layout1.html' %}
+
+{% block main_content %}
+    <div class="operate-bar">
+        <a href="{{ url_for('ctrl.env_edit',env_id=' ') }}" class="btn" rel="popup" data-width="700">创建环境</a>
+    </div>
+    <table class="data-tbl" data-empty-fill="1">
+        <thead>
+        <tr>
+            <th>环境ID</th>
+            <th>环境编号</th>
+            <th>环境名称</th>
+            <th>环境描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if(env_list|length>0) %}
+            {% for env in env_list %}
+                <tr>
+                    <td>{{ env.id }}</td>
+                    <td>{{ env.env_no }}</td>
+                    <td>{{ env.env_name }}</td>
+                    <td>{{ env.env_description }}</td>
+
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

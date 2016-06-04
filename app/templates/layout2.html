@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/default.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/theme.css') }}">
+    {% block css %}
+    {% endblock %}
+    <script type="text/javascript" src="{{ url_for('static',filename='js/seajs/sea.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/seajs/config.js') }}"></script>
+    <script type="text/javascript">
+        seajs.use("ywj/auto");
+    </script>
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+<div id="page">
+    <div id="header">
+    </div>
+    <div id="container" class="main-container-center">
+        <form action="{{ form_url }}" method="POST" rel="async">
+            <table class="frm-tbl">
+                <tbody>
+                <tr>
+                    <td class="col-label">用户邮箱</td>
+                    <td class="col-content">
+                        <input type="email" required class="small-txt" name="user_email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-label">用户密码</td>
+                    <td class="col-content">
+                        <input type="password" required class="small-txt" name="user_password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="col-action">
+                        {% if(action=="register") %}
+                            <input type="submit" value="Register" class="btn btn-primary">
+                        {% endif %}
+                        {% if(action=="login") %}
+                            <input type="submit" value="Login" class="btn btn-primary">
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div id="footer">
+        Copyright &copy; 2016
+        <a href="#">Deploy</a>
+    </div>
+</div>
+</body>
+
+<style type="text/css">
+    {% block footer_css %}
+    {% endblock %}
+
+</style>
+
+<script type="text/javascript">
+    {% block footer_js %}
+    {% endblock %}
+
+</script>
+</html>

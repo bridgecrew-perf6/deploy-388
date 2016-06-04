@@ -1,0 +1,38 @@
+{% extends 'layout1.html' %}
+
+{% block main_content %}
+    <div class="operate-bar">
+    </div>
+    <form action="#" class="frm" rel="async" method="post" enctype="multipart/form-data">
+        <table class="frm-tbl">
+            <caption>创建环境</caption>
+            <tbody>
+            <tr>
+                <td class="col-label">环境ID</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="env_no"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">环境名称</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="env_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">环境描述</td>
+                <td class="col-content">
+                    <input type="text" class="small-txt" name="env_description"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="col-action">
+                    <input type="submit" value="创建" class="btn btn-primary">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

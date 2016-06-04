@@ -1,0 +1,258 @@
+#col-main {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.quote {
+    width: 1000px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 30px 30px 50px 30px;
+    box-shadow: 5px 6px 28px #eee;
+    font-size: 14px
+}
+
+.quote input.quote-num {
+    width: 50px !important;;
+    min-width: 0 !important;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.quote select.quote-spec-sel {
+    min-width: 0;
+    width: 100px;
+}
+
+.quote var {
+    font-style: normal;
+    padding: 0 1px
+}
+
+.quote-cap {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quote-state {
+    padding: 10px 0;
+    color: gray;
+}
+
+.quote-catalog {
+    margin: 20px 0;
+}
+
+.quote-catalog-name {
+    background-color: #eee;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.quote-catalog-name .ti {
+    font-size: 18px;
+    font-weight: normal;
+    float: left;
+    line-height: 40px;
+}
+
+.quote-help {
+    display: inline-block;
+    width: 14px;
+    line-height: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.quote-help:hover {
+    border-color: #ff5500;
+    color: #ff5500;
+}
+
+.quote-catalog-name .quote-help {
+    width: 20px;
+    line-height: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.quote-item-list {
+}
+
+.quote-item-list table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.quote-item-list thead th {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: normal
+}
+
+.quote-item-list thead th a {
+    font-size: 12px;
+}
+
+.quote-item-list tr:hover {
+    background-color: #fafafa
+}
+
+.quote-item-list th,
+.quote-item-list td {
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px dotted #eee;
+}
+
+.quote-col-label thead th {
+    color: #ccc;
+    background-color: #fafafa;
+    font-size: 12px;
+}
+
+.quote-col-label thead th:last-child {
+    text-align: right
+}
+
+.quote-item-list .sum {
+    display: block;
+    text-align: right
+}
+
+.quote-item-list tbody .sum {
+    color: gray;
+}
+
+.quote-catalog-sum {
+    float: right;
+    margin: -30px 20px 0 0;
+    font-size: 16px;
+    color: #444
+}
+
+.quote-catalog-sum em {
+    font-style: normal;
+}
+
+.quote-sum {
+    font-size: 18px;
+    text-align: right;
+    color: green;
+    padding-right: 20px;
+}
+
+.quote-sum em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.quote-sum var {
+    font-size: 26px;
+}
+
+.quote-note {
+    text-align: right;
+    color: #ccc;
+    padding: 10px 20px 10px 0;
+}
+
+.quote .col-name {
+    width: 400px;
+}
+
+.quote .col-spec {
+    width: 180px;
+}
+
+.quote .col-num {
+    width: 180px;
+}
+
+.quote .col-price {
+    width: 100px;
+}
+
+.quote-other-cost-tbl {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.quote-other-cost-tbl caption {
+    text-align: left;
+    color: #444;
+    font-size: 16px;
+    padding: 0 0 10px 10px;
+}
+
+.quote-other-cost-tbl th,
+.quote-other-cost-tbl td {
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    font-weight: normal;
+    color: gray;
+}
+
+a[rel=delete-product],
+a[rel=delete-room],
+a[rel=update-room],
+a[rel=add-room-product],
+a[rel=delete-category],
+a[rel=add-category],
+a[rel=delete-category-item],
+a[rel=add-category-item],
+a[rel=add-room] {
+    visibility: hidden
+}
+
+.quote-catalog:hover a[rel=add-room],
+.quote-catalog:hover a[rel=add-category],
+table:hover a[rel=add-room-product],
+table:hover a[rel=update-room],
+table:hover a[rel=delete-room],
+table:hover a[rel=delete-room],
+table:hover a[rel=delete-category],
+table:hover a[rel=add-category],
+table:hover a[rel=add-category-item],
+tr:hover a[rel=delete-category-item],
+tr:hover a[rel=delete-product] {
+    visibility: visible
+}
+
+.quote-readonly select,
+.quote-readonly input[type=number] {
+    border: none;
+}
+
+.quote-readonly input[type=submit] {
+    display: none
+}
+
+.quote-readonly a[rel=delete-product],
+.quote-readonly a[rel=add-room-product],
+.quote-readonly a[rel=delete-room],
+.quote-readonly a[rel=update-room],
+.quote-readonly a[rel=add-room],
+.quote-readonly a[rel=delete-category],
+.quote-readonly a[rel=add-category],
+.quote-readonly a[rel=add-category-item],
+.quote-readonly a[rel=delete-category-item] {
+    visibility: hidden !important;
+}
+
+tr.row-disabled td {
+    background-color: #ccc;
+    color: gray;
+}
+
+tr.row-disabled .txt {
+    color: gray;
+}
