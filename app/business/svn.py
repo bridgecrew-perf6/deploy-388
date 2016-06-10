@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*- 
 __author__ = 'Administrator'
 
-from .command import Command
-
-
+from app.business.command import Command
 class Svn(Command):
-	def updateRepo(self, branch="trunk"):
-		pass
 
-	def runLocalCommand(self):
-		pass
-
-	def runRemoteCommand(self):
+	def updateRepo(self, branch="trunk",commit_id=None):
 		pass
 
 	def getBranch(self):
 		pass
 
-	def getDeployFromAbsPath(self):
+	def getCommit(self):
 		pass

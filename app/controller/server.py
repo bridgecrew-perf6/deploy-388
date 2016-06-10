@@ -7,17 +7,20 @@ from app.business.dbsession import DBSession
 from app.utils.result import Result
 from app.models import Server, Environ, Project
 from app.business.server import ServerBusinese
+from flask_login import login_required
 
 
 @ctrl.route("/server/")
 @ctrl.route("/server/list/")
 @ctrl.route("/server/index/")
+@login_required
 def server_list():
 	server_list = Server.query.all()
 	return render_template("server/list.html", server_list=server_list)
 
 
 @ctrl.route("/server/edit/<server_id>/", methods=["GET", "POST"])
+@login_required
 def server_edit(server_id=None):
 	method = request.method
 	server_id = request.args.get("evn_id", "").strip()

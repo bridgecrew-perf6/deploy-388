@@ -13,6 +13,7 @@ class TaskBusiness():
 	TASK_STATUS_REVIEW_REJECT = "review_reject"
 	TASK_STATUS_DEPLOY_SUCCESS = "deploy_success"
 	TASK_STATUS_DEPLOY_FAIL = "deploy_fail"
+
 	TASK_ACTION_ID_DEPLOY = "deploy"
 	TASK_ACTION_ID_ROLLBACK = "rollback"
 

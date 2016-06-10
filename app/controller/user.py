@@ -2,12 +2,12 @@
 __author__ = 'Administrator'
 
 from . import ctrl
-from flask import request, render_template, url_for
+from flask import request, render_template, url_for,redirect
 from app.utils.result import Result
 from app.models import User
 from app.business.user import UserBusiness
 from app.business.dbsession import DBSession
-from flask_login import login_user, login_required
+from flask_login import login_user, login_required,logout_user
 
 
 @ctrl.route("/")
@@ -27,8 +27,10 @@ def user_login():
 		verify = user_model.verify_password(user_password)
 		if (verify is False):
 			return Result("email or password error", 1).getIframeResponse()
-		login_user(user_email)
-
+		login_user(user_model,True)
+		next=request.args.get("next","")
+		if(next!=""):
+			redirect(next)
 		return Result("succ", 0, url_for("ctrl.task_list")).getIframeResponse()
 	else:
 		action = "login"
@@ -60,11 +62,13 @@ def user_register():
 
 
 @ctrl.route("/logout", methods=["GET", "POST"])
-def user_logout():
-	pass
-
-
 @login_required
+def user_logout():
+	logout_user()
+	return redirect(url_for("ctrl.user_login"))
+
+
 @ctrl.route("/user/profile", methods=["GET", "POST"])
+@login_required
 def user_profile():
 	return "hah "

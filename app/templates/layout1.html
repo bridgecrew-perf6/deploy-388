@@ -27,25 +27,13 @@
 
                 <div id="welcome">
                     {% if current_user.is_authenticated %}
-                        欢迎您， <b>{{ current_user.user_email }}</b> &nbsp;
+                       <b>{{ current_user.user_email }}</b> &nbsp;&nbsp;
+                        <a href="{{ url_for('ctrl.user_logout') }}">退出</a>
                     {% else %}
                         请&nbsp;&nbsp;<a href="{{ url_for('ctrl.user_login') }}">登录</a>
                     {% endif %}
                 </div>
                 <ul id="main-nav">
-                    {% for i in range(5) %}
-                        <li>
-                            <a>父菜单一</a>
-                        </li>
-                        <dl class="sub-nav">
-                            <dt><span>子菜单一</span></dt>
-                            <dd><a>一</a></dd>
-                            <dd><a>一</a></dd>
-                            <dd><a>一</a></dd>
-                            <dd><a>一</a></dd>
-                            <dd><a>一</a></dd>
-                        </dl>
-                    {% endfor %}
                 </ul>
             {% endblock %}
         </div>
@@ -57,7 +45,7 @@
                     {% block aside_nav %}
                         <dl class="aside-nav">
                             <dt>上线单</dt>
-                            <dd><a href="{{ url_for('ctrl.task_list') }}">我的上线单</a></dd>
+                            <dd><a href="{{ url_for('ctrl.task_list') }}">上线单列表</a></dd>
                             <dd><a href="{{ url_for('ctrl.task_choose') }}">提交上线单</a></dd>
                         </dl>
                         <dl class="aside-nav">

@@ -9,15 +9,22 @@ from app.business.task import TaskBusiness
 from app.business.git import Git
 from app.business.dbsession import DBSession
 from app.utils.result import Result
+from app.business.user import UserBusiness
+from flask_login import login_required,current_user
+from app.business.git import Git
+from app.utils.rsync import Rsync
 
 
 @ctrl.route("/task/index/")
 @ctrl.route("/task/")
 @ctrl.route("/task/list/")
+@login_required
 def task_list():
-	env_list = Environ.query.all()
-	server_list = Server.query.all()
-	task_list = Task.query.all()
+	if(current_user.check_is_admin()):
+		task_list = Task.query.all()
+	else:
+		task_list = Task.query.filter_by(user_id=current_user.id).all()
+
 	task_status_desc_map = TaskBusiness.TASK_STATUS_DESC_MAP
 	task_action_id_desc_map = TaskBusiness.TASK_ACTION_ID_DESC_MAP
 
@@ -26,6 +33,7 @@ def task_list():
 	task_status_review_reject = TaskBusiness.TASK_STATUS_REVIEW_REJECT
 	task_status_deploy_success = TaskBusiness.TASK_STATUS_DEPLOY_SUCCESS
 	task_status_deploy_fail = TaskBusiness.TASK_STATUS_DEPLOY_FAIL
+
 	task_action_id_deploy = TaskBusiness.TASK_ACTION_ID_DEPLOY
 	task_action_id_rollback = TaskBusiness.TASK_ACTION_ID_ROLLBACK
 
@@ -43,6 +51,7 @@ def task_list():
 
 
 @ctrl.route("/task/choose/")
+@login_required
 def task_choose():
 	project_list = Project.query.filter_by(status=ProjectBusiness.PROJECT_STATUS_ON)
 	env_list = Environ.query.all()
@@ -53,6 +62,7 @@ def task_choose():
 
 
 @ctrl.route("/task/submit/project_id/<project_id>/env_id/<env_id>", methods=["GET"])
+@login_required
 def task_submit(project_id=None, env_id=None):
 	if (project_id is None or project_id == "" or env_id is None or env_id == ""):
 		return "error"
@@ -73,6 +83,7 @@ def task_submit(project_id=None, env_id=None):
 
 
 @ctrl.route("/task/do_submit", methods=["POST"])
+@login_required
 def task_do_submit():
 	method = request.method
 	if (method == "POST"):
@@ -108,11 +119,13 @@ def task_do_submit():
 
 
 @ctrl.route("/task/delete")
+@login_required
 def task_delete():
 	pass
 
 
 @ctrl.route("/task/toggleStatus/task_id/<task_id>/status/<status>", methods=["GET"])
+@login_required
 def task_toggle_status(task_id=None, status=None):
 	if (task_id is None or status is None):
 		return Result("fail", 1, url_for("ctrl.task_list")).getJson()
@@ -124,10 +137,28 @@ def task_toggle_status(task_id=None, status=None):
 
 
 @ctrl.route("/task/deploy/task_id/<task_id>", methods=["GET", "POST"])
+@login_required
 def task_deploy(task_id=None):
-	pass
+	task=Task.query.filter_by(id=task_id).first()
+	project_id=task.project_id
+	env_id=task.env_id
+	project=Project.query.filter_by(id=project_id).first()
+	server_list=Server.query.fiter_by(project_id=project_id,env_id=env_id).all()
+
+	if(len(server_list)):
+		git=Git(project)
+		(status,message)=git.updateRepo(task.branch_id,task.commit_id)
+		if(status!=0):
+			return Result(message, 1, url_for("ctrl.task_list")).getJson()
+		for server in server_list:
+			(status,message)=git.syncDir(server.server_ip,".git")
+			if(status!=0):
+				return Result(message, 1, url_for("ctrl.task_list")).getJson()
+
+		return Result("succ", 0, url_for("ctrl.task_list")).getJson()
 
 
 @ctrl.route("/task/rollback/task_id/<task_id>", methods=["GET", "POST"])
+@login_required
 def task_rollback(task_id=None):
 	pass

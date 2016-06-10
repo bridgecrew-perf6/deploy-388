@@ -17,12 +17,14 @@ from flask_login import login_required
 @ctrl.route("/project/")
 @ctrl.route("/project/list/")
 @ctrl.route("/project/index/")
+@login_required
 def project_list():
 	project_list = Project.query.all()
 	return render_template("project/list.html", project_list=project_list)
 
 
 @ctrl.route('/project/edit/<project_id>', methods=["GET", "POST"])
+@login_required
 def project_edit(project_id=None):
 	method = request.method
 	project_id = project_id.strip()
@@ -60,11 +62,13 @@ def project_edit(project_id=None):
 
 
 @ctrl.route('/project/delete/<project_id>', methods=["GET"])
+@login_required
 def project_delete(project_id=None):
 	pass
 
 
 @ctrl.route("/project/toggle/<project_id>", methods=["GET"])
+@login_required
 def project_toggle(project_id=None):
 	if (project_id is None):
 		return Result("project cant be none", 1).getIframeResponse()
@@ -77,11 +81,13 @@ def project_toggle(project_id=None):
 
 
 @ctrl.route("/project/environ/<project_id>")
+@login_required
 def project_environ(project_id=None):
 	pass
 
 
 @ctrl.route("/project/check/<project_id>")
+@login_required
 def project_check(project_id=None):
 	if (project_id is None or project_id == ""):
 		return Result("project cant be none", 1).getJson()

@@ -29,18 +29,22 @@
                 <td>{{ task_action_id_desc_map[task.action_id] }}</td>
                 <td>{{ task_status_desc_map[task.status] }}</td>
                 <td>
-                    <a rel=async data-confirm="确认审核通过?"
-                       href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_success) }}">审核通过</a>|
-                    <a rel=async data-confirm="确认审核驳回?"
-                       href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_reject) }}">审核不通过</a>|
-                    <a rel=async data-confirm="确认进行发布?" href="{{ url_for('ctrl.task_deploy',task_id=task.id) }}">发布</a>|
-                    <a rel=async data-confirm="确认进行回滚?"
-                       href="{{ url_for('ctrl.task_rollback',task_id=task.id) }}">回滚</a>|
+                    {% if(current_user.check_is_admin() == True  and task.status==task_status_create) %}
+                         <a rel=async data-confirm="确认审核通过?" href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_success) }}">审核通过</a>|
+                         <a rel=async data-confirm="确认审核驳回?" href="{{ url_for('ctrl.task_toggle_status',task_id=task.id,status=task_status_review_reject) }}">审核不通过</a>
+                    {% endif %}
+                    {% if(current_user.check_is_admin() == False and task.status==task_status_review_success) %}
+                        {% if(task.action_id==task_action_id_deploy) %}
+                            <a rel=async data-confirm="确认进行发布?" href="{{ url_for('ctrl.task_deploy',task_id=task.id) }}">发布</a>
+                        {%  endif %}
+                        {% if(task.action_id==task_action_id_rollback) %}
+                            <a rel=async data-confirm="确认进行回滚?" href="{{ url_for('ctrl.task_rollback',task_id=task.id) }}">回滚</a>
+                        {% endif %}
+                    {% endif %}
+
                 </td>
             </tr>
         {% endfor %}
-
-
         </tbody>
     </table>
 {% endblock %}

@@ -7,16 +7,9 @@ class User(db.Model):
 	__tablename__="user"
 	id=db.Column(db.INTEGER,primary_key=True)
 	user_email=db.Column(db.VARCHAR(100),index=True,nullable=False,unique=True)
+	user_name=db.Column(db.VARCHAR(20),nullable=True)
 	user_password=db.Column(db.VARCHAR(100),nullable=False)
-	role_id=db.Column(db.INTEGER)
-
-	def __repr__(self):
-		return "<table %s>" % self.id
-
-class Role(db.Model):
-	__tablename__="role"
-	id=db.Column(db.INTEGER,primary_key=True)
-	role_name=db.Column(db.VARCHAR(50),nullable=False)
+	is_admin=db.Column(db.Enum("no","yes"),nullable=False)
 
 	def __repr__(self):
 		return "<table %s>" % self.id

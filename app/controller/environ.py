@@ -6,11 +6,13 @@ from flask import request, render_template, url_for
 from app.models import Environ
 from app.business.dbsession import DBSession
 from app.utils.result import Result
+from flask_login import login_required
 
 
 @ctrl.route("/env/")
 @ctrl.route("/env/list/")
 @ctrl.route("/env/index/")
+@login_required
 def env_list():
 	env_list = Environ.query.all()
 	print request.__dict__
@@ -19,6 +21,7 @@ def env_list():
 
 
 @ctrl.route("/env/edit/<env_id>/", methods=["GET", "POST"])
+@login_required
 def env_edit(env_id=None):
 	method = request.method
 	env_id = request.args.get("evn_id", "").strip()
@@ -55,5 +58,6 @@ def env_edit(env_id=None):
 
 
 @ctrl.route("/evn/delete/<env_id>")
+@login_required
 def env_delete(env_id=None):
 	pass
